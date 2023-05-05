@@ -31,7 +31,7 @@ router.get('/clients/getHistorical/:initDate/:endDate', getHistorical)
 //Funcion que utilizaran endpoint
 async function getAllClients(req, res) {
     try {
-        return await res.status(200).send(await controller.getAllClients());
+        return await res.status(200).send({response: await controller.getAllClients()});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -39,7 +39,7 @@ async function getAllClients(req, res) {
 
 async function getAddress(req, res) {
     try {
-        return await res.status(200).send(await controller.getAddress(req.params.id_client));
+        return await res.status(200).send({response: await controller.getAddress(req.params.id_client)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -47,8 +47,8 @@ async function getAddress(req, res) {
 
 async function getIdIdentification(req, res) {
     try {
-        console.log("data")
-        return await res.status(200).send(await controller.getIdIdentification(req.params.id_client));
+        
+        return await res.status(200).send({response: await controller.getIdIdentification(req.params.id_client)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -56,7 +56,7 @@ async function getIdIdentification(req, res) {
 
 async function searchClients(req, res) {
     try {
-        return await res.status(200).send(await controller.searchClients(req.params.search, req.params.type_search));
+        return res.status(200).send({response: await controller.searchClients(req.params.search, req.params.type_search)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -64,7 +64,7 @@ async function searchClients(req, res) {
 
 async function rectificationClient(req, res) {
     try {
-        return await res.status(200).send(await controller.rectificationClient(req.params.id_client, req.body));
+        return await res.status(200).send({response: await controller.rectificationClient(req.params.id_client, req.body)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -72,8 +72,8 @@ async function rectificationClient(req, res) {
 
 async function rectificationsAddress(req, res) {
     try {
-        return await res.status(200).send(await controller.rectificationsAddress(
-            req.params.id_client, req.params.id_address, req.body));
+        return await res.status(200).send({response: await controller.rectificationsAddress(
+            req.params.id_client, req.params.id_address, req.body)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }    
@@ -81,8 +81,8 @@ async function rectificationsAddress(req, res) {
 
 async function rectificationsIdentification(req, res) {
     try {
-        return await res.status(200).send(await controller.rectificationsIdentification(
-            req.params.id_client, req.params.id_identification, req.body));
+        return await res.status(200).send({response: await controller.rectificationsIdentification(
+            req.params.id_client, req.params.id_identification, req.body)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }    
@@ -90,7 +90,7 @@ async function rectificationsIdentification(req, res) {
 
 async function deleteData(req, res) {
     try {
-        return await res.status(200).send(await controller.deleteData(req.params.id_client));
+        return await res.status(200).send({response: await controller.deleteData(req.params.id_client)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -98,7 +98,7 @@ async function deleteData(req, res) {
 
 async function addOpposition(req, res) {
     try {
-        return await res.status(200).send(await controller.addOpposition(req.params.id_client, req.body.dataArr));
+        return await res.status(200).send({response: await controller.addOpposition(req.params.id_client, req.body.dataArr)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -106,7 +106,7 @@ async function addOpposition(req, res) {
 
 async function getOppositionIdClient(req, res) {
     try {
-        return await res.status(200).send(await controller.getOppositionIdClient(req.params.id_client));
+        return await res.status(200).send({response: await controller.getOppositionIdClient(req.params.id_client)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -114,7 +114,7 @@ async function getOppositionIdClient(req, res) {
 
 async function getAllOposition(req, res) {
     try {
-        return await res.status(200).send(await controller.getAllOposition(req.params.endDate));
+        return await res.status(200).send({response: await controller.getAllOposition(req.params.endDate)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
@@ -122,7 +122,7 @@ async function getAllOposition(req, res) {
 
 async function getHistorical(req, res) {
     try {
-        return await res.status(200).send(await controller.getHistorical(req.params.initDate, req.params.initDate));
+        return await res.status(200).send({response: await controller.getHistorical(req.params.initDate, req.params.initDate)});
     } catch (error) {
         return await res.status(500).send({'message': 'Server error'})
     }
