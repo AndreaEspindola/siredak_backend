@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-
 //Importamos rutas
 const routes = require('./routes/routes')
 

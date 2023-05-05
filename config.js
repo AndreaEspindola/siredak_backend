@@ -2,10 +2,10 @@
 
 module.exports = {
     api: {
-        port: process.env.PORT || 5173  
+        port: process.env.PORT || 3001
     },
     frontend: {
-        api: ''
+        api: 5173  
     },
     mysql: {
         host: process.env.MYSQL_HOST || 'us-cdbr-east-06.cleardb.net',
