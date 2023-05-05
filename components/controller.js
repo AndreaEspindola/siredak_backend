@@ -4,10 +4,11 @@ const moment = require("moment")
 
 
 async function getAllClients() {
+    console.log("data")
     try {
         //Obtener todos los clientes
         const result = await query(`SELECT * FROM clients`);
-
+        console.log("this is result: ", result)
 
         //Obtener sus valores baneados
         for(let i = 0; i < result.length; i++){
@@ -22,9 +23,10 @@ async function getAllClients() {
             for(let j = 0; j < oppositedField.length; j++) 
                 result[i][`${oppositedField[j].nameField}`] = "";
         }
-
+        console.log(result)
         return result;
     } catch (err) {
+        console.log(err)
         return err
     }
 }
