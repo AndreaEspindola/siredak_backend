@@ -2,7 +2,7 @@
 
 module.exports = {
     api: {
-        port: process.env.PORT || 3001  
+        port: process.env.PORT || 5173  
     },
     frontend: {
         api: ''

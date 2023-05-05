@@ -13,7 +13,9 @@ const app = express();
 
 //Middleware
 app.use(express.json()); //Parsear a json
-app.use(cors()); //Configuración cors
+app.use(cors({
+    origin: '*'
+})); //Configuración cors
 
 
 //Usar rutas
